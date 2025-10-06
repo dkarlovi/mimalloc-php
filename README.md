@@ -23,5 +23,6 @@ docker compose run --rm docker-alpine-malloc
 |                 | `zendmm` | `malloc` | `mimalloc` |
 |-----------------|---------:|---------:|-----------:|
 | `fedora`        |   0.569s |   0.586s |        N/A |
+| `alpine`        |   1.166s |   1.207s |        N/A |
 | `docker-debian` |   0.700s |   0.706s |        N/A |
 | `docker-alpine` |   0.704s |   0.744s |     0.733s |

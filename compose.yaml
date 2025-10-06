@@ -7,15 +7,27 @@ services:
         image: dkarlovi/mimalloc-php:fedora-malloc
         build:
             target: fedora-malloc
-    alpine-zendmm:
-        image: dkarlovi/mimalloc-php:alpine-zendmm
+    docker-debian-zendmm:
+        image: dkarlovi/mimalloc-php:docker-debian-zendmm
         build:
-            target: alpine-zendmm
-    alpine-malloc:
-        image: dkarlovi/mimalloc-php:alpine-malloc
+            target: docker-debian-zendmm
+    docker-debian-malloc:
+        image: dkarlovi/mimalloc-php:docker-debian-malloc
         build:
-            target: alpine-malloc
-    alpine-mimalloc2:
-        image: dkarlovi/mimalloc-php:alpine-mimalloc2
+            target: docker-debian-malloc
+    docker-debian-mimalloc3:
+        image: dkarlovi/mimalloc-php:docker-debian-mimalloc3
         build:
-            target: alpine-mimalloc2
+            target: docker-debian-mimalloc3
+    docker-alpine-zendmm:
+        image: dkarlovi/mimalloc-php:docker-alpine-zendmm
+        build:
+            target: docker-alpine-zendmm
+    docker-alpine-malloc:
+        image: dkarlovi/mimalloc-php:docker-alpine-malloc
+        build:
+            target: docker-alpine-malloc
+    docker-alpine-mimalloc2:
+        image: dkarlovi/mimalloc-php:docker-alpine-mimalloc2
+        build:
+            target: docker-alpine-mimalloc2

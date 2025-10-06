@@ -1,8 +1,16 @@
 services:
+    fedora-zendmm:
+        image: dkarlovi/mimalloc-php:fedora-zendmm
+        build:
+            target: fedora-zendmm
     fedora-malloc:
         image: dkarlovi/mimalloc-php:fedora-malloc
         build:
             target: fedora-malloc
+    alpine-zendmm:
+        image: dkarlovi/mimalloc-php:alpine-zendmm
+        build:
+            target: alpine-zendmm
     alpine-malloc:
         image: dkarlovi/mimalloc-php:alpine-malloc
         build:

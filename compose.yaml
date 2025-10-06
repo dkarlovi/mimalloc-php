@@ -1,9 +1,13 @@
 services:
-    malloc:
-        image: dkarlovi/mimalloc-php:malloc
+    fedora-malloc:
+        image: dkarlovi/mimalloc-php:fedora-malloc
         build:
-            target: malloc
-    mimalloc2:
-        image: dkarlovi/mimalloc-php:mimalloc2
+            target: fedora-malloc
+    alpine-malloc:
+        image: dkarlovi/mimalloc-php:alpine-malloc
         build:
-            target: mimalloc2
+            target: alpine-malloc
+    alpine-mimalloc2:
+        image: dkarlovi/mimalloc-php:alpine-mimalloc2
+        build:
+            target: alpine-mimalloc2

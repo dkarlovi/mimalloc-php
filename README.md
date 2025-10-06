@@ -5,12 +5,17 @@
 docker compose build
 ```
 
-2. run with Musl's `malloc` (baseline)
+2. run Fedora with Glibc's `malloc` (baseline)
 ```shell
-docker compose run --rm malloc
+docker compose run --rm fedora-malloc
 ```
 
-3. run with Microsoft's `mimalloc2` 
+3. run Alpine with Musl's `malloc`
 ```shell
-docker compose run --rm mimalloc2
+docker compose run --rm alpine-malloc
+```
+
+4. run Alpine with Microsoft's `mimalloc2` 
+```shell
+docker compose run --rm alpine-mimalloc2
 ```

@@ -47,3 +47,11 @@ services:
         image: dkarlovi/mimalloc-php:docker-alpine-mimalloc
         build:
             target: docker-alpine-mimalloc
+    wolfi-zendmm:
+        image: dkarlovi/mimalloc-php:wolfi-zendmm
+        build:
+            target: wolfi-zendmm
+    wolfi-malloc:
+        image: dkarlovi/mimalloc-php:wolfi-malloc
+        build:
+            target: wolfi-malloc

@@ -1,0 +1,9 @@
+services:
+    malloc:
+        image: dkarlovi/mimalloc-php:malloc
+        build:
+            target: malloc
+    mimalloc2:
+        image: dkarlovi/mimalloc-php:mimalloc2
+        build:
+            target: mimalloc2

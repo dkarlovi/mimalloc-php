@@ -19,6 +19,16 @@ CMD ["php", "/benckmarks/micro_bench.php"]
 FROM fedora-runtime AS fedora-zendmm
 FROM fedora-runtime AS fedora-malloc
 ENV USE_ZEND_ALLOC=0
+FROM fedora-runtime AS fedora-mimalloc
+RUN dnf install -y \
+        mimalloc \
+    && dnf clean all
+ENV LD_PRELOAD=/usr/lib64/libmimalloc.so.2
+ENV USE_ZEND_ALLOC=0
+# ENV MIMALLOC_ALLOW_LARGE_OS_PAGES=1
+# ENV MIMALLOC_SHOW_STATS=1
+# ENV MIMALLOC_SHOW_ERRORS=1
+
 
 FROM alpine:3.22 AS alpine-runtime
 RUN apk add --no-cache \

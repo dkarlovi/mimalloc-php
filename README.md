@@ -26,3 +26,4 @@ docker compose run --rm docker-alpine-malloc
 | `alpine`        |   1.166s |   1.207s |     1.208s |
 | `docker-debian` |   0.700s |   0.706s |        N/A |
 | `docker-alpine` |   0.704s |   0.744s |     0.733s |
+| `wolfi`         |   0.723s |   0.727s |        N/A |

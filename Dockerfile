@@ -105,3 +105,26 @@ ENV USE_ZEND_ALLOC=0
 # ENV MIMALLOC_ALLOW_LARGE_OS_PAGES=1
 # ENV MIMALLOC_SHOW_STATS=1
 # ENV MIMALLOC_SHOW_ERRORS=1
+
+FROM cgr.dev/chainguard/wolfi-base AS wolfi-runtime
+RUN apk add --no-cache \
+    php-8.4 \
+    php-8.4-gmp \
+    php-8.4-mbstring \
+    php-8.4-mysqli \
+    php-8.4-mysqlnd \
+    php-8.4-opcache \
+    php-8.4-sockets \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+RUN mkdir /benckmarks /work \
+    && wget https://raw.githubusercontent.com/php/php-src/refs/heads/master/Zend/bench.php -O /benckmarks/bench.php \
+    && wget https://raw.githubusercontent.com/php/php-src/refs/heads/master/Zend/micro_bench.php -O /benckmarks/micro_bench.php \
+    && wget https://raw.githubusercontent.com/php/php-src/refs/heads/master/benchmark/benchmark.php -O /benckmarks/benchmark.php \
+    && wget https://raw.githubusercontent.com/php/php-src/refs/heads/master/benchmark/generate_diff.php -O /benckmarks/generate_diff.php \
+    && wget https://raw.githubusercontent.com/php/php-src/refs/heads/master/benchmark/shared.php -O /benckmarks/shared.php
+WORKDIR /work
+CMD ["php", "/benckmarks/micro_bench.php"]
+FROM wolfi-runtime AS wolfi-zendmm
+FROM wolfi-runtime AS wolfi-malloc
+ENV USE_ZEND_ALLOC=0
